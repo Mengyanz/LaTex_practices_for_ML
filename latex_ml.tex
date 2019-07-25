@@ -28,7 +28,7 @@ This document collects some basic LaTeX design choices and tips for writing nice
 
 \begin{enumerate}
     \item Always use align. \\
-    Although the environment $\textit{eqnarray}$ allows aligned systems of equations, the spacing around signs is not defined in metrics for the font from the glyph comes and may be may be set to some very odd value for reasons associated with real arrays elsewhere in the document \cite{Madsen:PJ:2006-4}. Instead, in $\textit{amsmath}$ package, the $\textit{align}$ environment is designed for mathematicians, code as:
+    Although the environment $\textit{eqnarray}$ allows aligned systems of equations, the spacing around signs is not defined in metrics for the font from the glyph comes and may be set to some very odd value for reasons associated with real arrays elsewhere in the document \cite{Madsen:PJ:2006-4}. Instead, in $\textit{amsmath}$ package, the $\textit{align}$ environment is designed for mathematicians, code as:
     
     \begin{lstlisting}
     \begin{align}
@@ -56,12 +56,12 @@ This document collects some basic LaTeX design choices and tips for writing nice
        \item sentence format: The title of the nice book.
        \item title format: The Title of the Nice Book.
    \end{itemize}
-   Use title format for all section, subsection, etc. titles.
+   Use the title format for all section, subsection, etc. titles.
    
    \item Tables.\\
    Some general rules to make nice table:
    \begin{itemize}
-       \item Left align text, right algin numbers. If doubt, align left. 
+       \item Left align text, right align numbers. If doubt, align left. 
        \item Use consistent precise of numbers. 
        \item Add emphasis 
        \item Avoid vertical lines or "boxing up" cells. Usually 3 horizontal lines are
