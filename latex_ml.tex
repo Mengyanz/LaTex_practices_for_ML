@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fixmath}
+
+\title{LaTeX best practices for ML}
+\author{}
+\date{\today}
+\bibliography{ref.bib}
+
+\topmargin -.5in
+\textheight 9in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\textwidth 6.5in
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document collects some basic LaTeX design choices and tips for writing nice looking documents. 
+
+\section{Typesetting}
+
+\begin{enumerate}
+    \item Always use align. \\
+    Although the environment $\textit{eqnarray}$ allows aligned systems of equations, the spacing around signs is not defined in metrics for the font from the glyph comes and may be may be set to some very odd value for reasons associated with real arrays elsewhere in the document \cite{Madsen:PJ:2006-4}. Instead, in $\textit{amsmath}$ package, the $\textit{align}$ environment is designed for mathematicians, code as:
+    
+    \begin{lstlisting}
+    \begin{align}
+      a & = b + c \\
+      x & = y - z
+    \end{align}
+    \end{lstlisting}
+   
+   \item Use the "theorem/proof" environments.\\
+   The $\textit{amsthm}$ package provides enhanced version of LaTex's $\textit{newtheorem}$ commands to define theorem-proof environment. By simply putting a link like
+   \begin{lstlisting}
+   \newtheorem{thm}{Theorem}
+   \end{lstlisting}
+   for each theorem-like structure you want to define (e.g. Lemma, Proposition and definition)and put it in the preamble (i.e. between $\textit{\textbackslash documentclass}$ and $\textit{\textbackslash begin\{documentclass\}}$). To use the defined structure, use the following code
+   \begin{lstlisting}
+    \begin{thm}
+        Herding cats is hard.
+    \end{thm}
+   \end{lstlisting}
+   For more details, see the tutorial \cite{MITtheorem}
+   
+   \item Capitalization.\\
+   There are two types of capitalization:
+   \begin{itemize}
+       \item sentence format: The title of the nice book.
+       \item title format: The Title of the Nice Book.
+   \end{itemize}
+   Use title format for all section, subsection, etc. titles.
+   
+   \item Tables.\\
+   Some general rules to make nice table:
+   \begin{itemize}
+       \item Left align text, right algin numbers. If doubt, align left. 
+       \item Use consistent precise of numbers. 
+       \item Add emphasis 
+       \item Avoid vertical lines or "boxing up" cells. Usually 3 horizontal lines are
+enough: above, below, and after heading. Also avoid double horizontal lines.
+        \item Enough space for rows.
+   \end{itemize}
+   See \cite{GuideTables} for more advice of table formatting. 
+\end{enumerate}
+
+\section{Mathematical notation}
+\begin{enumerate}
+    \item Keep notations consistent. Use lowercase italic for variables ($x$), lowercase italic bold for vectors ($\mathbold{x}$), uppercase italic bold for matrices ($\mathbold{X}$), uppercase italic for random variables($X$).
+    \item Define custom commands/variables.
+    \begin{lstlisting}
+    \renewcommand{\vec}[1]{\mathbold{#1}}
+    \newcommand{\mat}[1]{\mathbold{#1}}
+    \end{lstlisting}
+    This allows changing the way to format your variables by simply changing the command. 
+        
+    
+    \item use bmatrix for matrices.
+\end{enumerate}{}
+
+\section{Bibliography}
+\begin{enumerate}
+    \item bib entries (InProceedings, Article, Book)
+    \item back references: for longer documents, such as a master or PhD thesis, it can be useful to have back references in the bibliography, to show where a reference was cited. Use the package 
+    \begin{lstlisting}
+    \usepackage[backref=page]{hyperref}}
+    \end{lstlisting}
+\end{enumerate}
+\section{Figures}
+
+\begin{enumerate}
+    \item Use EPS format. 
+\end{enumerate}{}
+
+\section{Useful resources}
+
+\begin{itemize}
+    \item The comprehensive LaTex symbol list: 14,283 symbols and corresponding LaTex commands \cite{SymbolList}. 
+    \item Tips and Tricks for Writing Scientific Papers: https://github.com/Wookai/paper-tips-and-tricks
+    \item Deadly sins: the most severe mistakes in using LaTex \cite{Obsolete}.
+\end{itemize}{}
+
+\printbibliography
+\end{document}
