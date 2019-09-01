@@ -85,13 +85,24 @@ enough: above, below, and after heading. Also avoid double horizontal lines.
     \item use bmatrix for matrices.
 \end{enumerate}{}
 
-\section{Bibliography}
+\section{Bibliography and references}
 \begin{enumerate}
     \item bib entries (InProceedings, Article, Book)
     \item back references: for longer documents, such as a master or PhD thesis, it can be useful to have back references in the bibliography, to show where a reference was cited. Use the package 
     \begin{lstlisting}
     \usepackage[backref=page]{hyperref}}
     \end{lstlisting}
+    \item Use \textit{hyperref} to make clickable references to tables, figures, and citations. \textit{hyperref} also provides the \textit{autoref} macro which will automatically name figures ``Figure'', etc.
+    \item \textit{hyperref} can be configured to be nicer looking, e.g.
+        \begin{lstlisting}
+            \hypersetup{
+                bookmarksnumbered,
+                colorlinks   = true,
+                urlcolor     = {blue!80!black},
+                linkcolor    = {red!50!black},
+                citecolor    = {blue!50!black},
+            }
+        \end{lstlisting}
 \end{enumerate}
 \section{Figures}
 
